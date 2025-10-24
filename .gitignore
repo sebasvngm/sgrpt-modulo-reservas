@@ -1,0 +1,8 @@
+# Ignorar la carpeta de compilación de Maven
+/target/
+# Archivos específicos de IDEs
+.vscode/
+.settings/
+*.class
+# Logs
+*.log

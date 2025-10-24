@@ -81,7 +81,41 @@ public class PaqueteTuristicoDAO {
         return listaPaquetes;
     }
     
-    // El método obtenerPorId y actualizar/eliminar sigue la misma estructura
+    // --- Dentro de la clase PaqueteTuristicoDAO.java ---
+
+    /**
+    * LEER POR ID: Obtiene un solo paquete turístico por su ID.
+    */
+    public PaqueteTuristico obtenerPorId(int idPaquete) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        PaqueteTuristico paquete = null;
+
+        try {
+            conn = ConexionDB.obtenerConexion();
+            ps = conn.prepareStatement(SQL_SELECT_BY_ID); // Asume que SQL_SELECT_BY_ID ya está definido
+            ps.setInt(1, idPaquete);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                paquete = new PaqueteTuristico(
+                    rs.getInt("idPaquete"),
+                    rs.getString("nombre"),
+                    rs.getString("descripcion"),
+                    rs.getString("destino"),
+                    rs.getInt("duracionDias"),
+                    rs.getDouble("precio")
+                );
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener paquete por ID: " + e.getMessage());
+        } finally {
+            // Es buena práctica cerrar RS y PS aquí, pero por simplicidad se cierra solo la conexión
+            ConexionDB.cerrarConexion(conn); 
+        }
+        return paquete;
+    }
 
     /**
      * 3. ACTUALIZAR: Modifica un paquete existente.

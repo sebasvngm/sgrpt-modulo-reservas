@@ -1,12 +1,10 @@
-package com.sgrpt.app;
+package com.sgrpt.app; // <--- ¡Debe coincidir con el error!
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-// [Comentario]: Esta anotación combina varias configuraciones y marca la clase como principal.
-@SpringBootApplication 
-public class App {
-    // [Comentario]: El método main ejecuta la aplicación Spring Boot.
+@SpringBootApplication
+public class App { // <--- ¡Debe llamarse App!
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }

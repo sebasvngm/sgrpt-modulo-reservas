@@ -6,3 +6,4 @@
 *.class
 # Logs
 *.log
+node_modules

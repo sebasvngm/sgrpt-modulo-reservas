@@ -1,0 +1,13 @@
+/* Este archivo es el punto de entrada CSS. 
+   Las directivas @tailwind son las que PostCSS/Tailwind leen para generar las utilidades.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilo base para el cuerpo */
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden; /* Previene barras de desplazamiento horizontales innecesarias */
+}
